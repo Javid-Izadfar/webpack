@@ -1,0 +1,103 @@
+@import '__vars.css';
+@import 'mixins/_grid.css';
+
+
+/*
+=================================================================================================
+# 2 Grid
+-------------------------------------------------------------------------------------------------
+*/
+
+body{margin: 0}
+
+*{box-sizing: border-box}
+
+.container-narrow,
+.container{
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto}
+
+.row,
+.row-reversed,
+.column,
+.column-reversed{
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap}
+
+.column,
+.column-reversed{height: 100%}
+
+.row{flex-direction: row}
+.row-reversed{flex-direction: row-reverse}
+.column{flex-direction: column}
+.column-reversed{flex-direction: column-reverse}
+
+[class*='all-']{
+  padding: calc($gutter / 2);
+  flex: 0 0 auto}
+
+.all-auto{flex-grow: 1}
+
+@for $i from 1 to 12 {
+  @mixin grid-main all, $i;
+  @mixin grid-offset all, $i;
+}
+
+@media screen and ( min-width: $desktop-min ){
+
+  .container{max-width: $desktop-contianer-width}
+
+  [class*='desktop-']{
+    padding: calc($gutter / 2);
+    flex: 0 0 auto}
+
+  @for $i from 1 to 12 {
+    @mixin grid-main desktop, $i;
+    @mixin grid-offset desktop, $i;
+  }
+
+  .desktop-auto{flex-grow: 1}
+
+  .desktop-hidden{display: none}
+
+}
+
+@each $device in laptop, tablet, mobile{
+
+  @media screen and ( min-width: $($(device)-min) ) and ( max-width: $($(device)-max) ){
+
+    .container{max-width: $($(device)-contianer-width)}
+
+    [class*='$(device)-']{
+      padding: calc($gutter / 2);
+      flex: 0 0 auto
+    }
+
+    @for $i from 1 to 12 {
+      @mixin grid-main $device, $i;
+      @mixin grid-offset $device, $i;
+    }
+
+    .$(device)-auto{flex-grow: 1}
+
+    .$(device)-hidden{display: none}
+
+  }
+
+}
+
+.no-padding{padding: 0 !important}
+.half-padding{padding: calc($gutter / 4) !important}
+.double-padding{padding: $gutter !important}
+
+.no-gaps{padding: * 0 !important}
+.half-gaps{padding: * calc($gutter / 4) !important}
+.double-gaps{padding: * $gutter !important}
+
+.no-gutter{padding: 0 * !important}
+.half-gutter{padding: calc($gutter / 4) * !important}
+.double-gutter{padding: $gutter  * !important}
+
+.no-margin{margin: 0 !important}

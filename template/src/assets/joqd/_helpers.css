@@ -1,0 +1,83 @@
+@import '__vars.css';
+@import 'mixins/_ratio.css';
+@import 'mixins/_maxLine.css';
+
+/*
+=================================================================================================
+# 9 Helpers
+-------------------------------------------------------------------------------------------------
+*/
+
+  /*
+  =============================================================================================
+  # 9.1 Alignments
+  ---------------------------------------------------------------------------------------------
+  */
+
+    .align-right{text-align: right}
+
+    .align-center{text-align: center}
+
+    .align-left{text-align: left}
+
+    .align-top{align-self: flex-start}
+
+    .align-middle{align-self: center}
+
+    .align-bottom{align-self: flex-end}
+
+    .align-content-top{
+      align-items: flex-start;
+      align-content: flex-start}
+
+    .align-content-middle{
+      align-items: center;
+      align-content: center}
+
+    .align-content-bottom{
+      align-items: flex-end;
+      align-content: flex-end}
+
+  /*
+  =============================================================================================
+  # 9.2 Ratio
+  ---------------------------------------------------------------------------------------------
+  */
+
+    /*.ratio-golden{
+      @mixin aspect-ratio 1.618, 1;
+    }
+
+    .ratio-4-3{
+      @mixin aspect-ratio 4, 3;
+    }
+
+    .ratio-16-9{
+      @mixin aspect-ratio 16, 9;
+    }*/
+
+  /*
+  =================================================================================================
+  # 9.2 Maximum Lines
+  -------------------------------------------------------------------------------------------------
+  */
+
+    [class*='max-line-']{
+      display: block;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      position: relative;
+      overflow: hidden;
+      &:after{
+        content: '';
+        bottom: 0; left: 0;
+        display: block;
+        position: absolute;
+        width: calc($gutter * 3)}
+    }
+
+    @for $i from 1 to 5{
+      .max-line-$(i){
+        @mixin max-line $i, $line-height, transparent;
+      }
+    }

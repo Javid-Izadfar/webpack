@@ -1,0 +1,13 @@
+@define-mixin corner $type{
+
+  .$(type)-corner{border-radius: $($(type)-border-radius)}
+
+  .$(type)-top-corner{border-top-radius: $($(type)-border-radius)}
+
+  .$(type)-right-corner{border-right-radius: $($(type)-border-radius)}
+
+  .$(type)-bottom-corner{border-bottom-radius: $($(type)-border-radius)}
+
+  .$(type)-left-corner{border-left-radius: $($(type)-border-radius)}
+
+}
