@@ -83,6 +83,9 @@
     "selenium-server": "^3.0.1",
     {{/e2e}}
     "postcss-at-rules-variables": "^0.1.1",
+    "postcss-calc": "^6.0.0",
+    "postcss-color-function": "^4.0.0",
+    "postcss-cssnext": "^2.11.0",
     "postcss-custom-properties": "^6.1.0",
     "postcss-each": "^0.10.0",
     "postcss-for": "^2.1.1",
