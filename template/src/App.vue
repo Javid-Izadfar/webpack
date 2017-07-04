@@ -1,11 +1,21 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    {{#router}}
-    <router-view></router-view>
-    {{else}}
-    <hello></hello>
-    {{/router}}
+  <div id="app" class="grey-lighten-5">
+    <div class="container">
+      <div class="row">
+        <div class="vue-logo all-3 double-gutter">
+          <img src="./assets/images/logo.png" class="responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="all-6 all-offset-3">
+          {{#router}}
+          <router-view></router-view>
+          {{else}}
+          <hello></hello>
+          {{/router}}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,15 +32,10 @@ export default {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
-
-<style src="./assets/postcss/style.pcss"></style>
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style src="./assets/style.pcss"></style>
+<style scoped>
+  #app{
+    min-height: 100vh;
+    padding: 12rem 0}
+  .vue-logo{margin: auto}
 </style>
