@@ -19,8 +19,8 @@
 
 <script>
 export default {
-  name: 'hello',
-  data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
+  name: 'HelloWorld',
+  data () {
     return {
       msg: 'به ویو با جغد و گربه خوش آمدید'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

@@ -11,7 +11,7 @@
           {{#router}}
           <router-view></router-view>
           {{else}}
-          <hello></hello>
+          <hello-world></hello-world>
           {{/router}}
         </div>
       </div>
@@ -21,15 +21,15 @@
 
 <script>
 {{#unless router}}
-import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import HelloWorld from './components/HelloWorld'
 
 {{/unless}}
 export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+  name: 'app'{{#router}}{{else}},
   components: {
-    Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    HelloWorld
+  }{{/router}}
+}
 </script>
 
 <style src="./assets/postcss/style.pcss"></style>
